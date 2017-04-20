@@ -1,0 +1,7 @@
+AAMMddllnnn
+
+AA = Últimos dos dígitos del año cuando la transmisión tomará lugar. Ej. 17 equivale a 2017
+MM = Mes cuando tomará lugar la transmisión. Ej. 01 equivale a Enero
+dd = Día en que tomará lugar la transmisión. Ej. 05 equivale al quinto día de cada mes
+ll = dos caracteres generados aleatoriamente. Permite una combinación de 676 caracteres
+nnn = tres numeros enteros generados aleatoriamente. Permite una obtener 1000 números (incluyendo el 000)
