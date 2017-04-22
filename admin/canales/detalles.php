@@ -18,8 +18,12 @@ if($_SESSION["activeSession"] = true)
             <li>Opera (Escritorio)</li>
             <li>Firefox</li>
         </ul>
-        <form>
+        <form action="../../scripts/admin/addChannel" method="GET">
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
+            <input type="hidden" name="chId"/>
+            <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
+            <input type="hidden" name="formAction" value="add"/>
+
             <label>Nombre de canal</label>
             <input type="text" placeholder="Nombre de canal" name="chName"><br>
             <label>Abreviatura del nombre de canal</label>
