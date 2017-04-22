@@ -12,10 +12,8 @@ if($_SESSION["activeSession"] == true)
     <body>
         <h1>Menú administrador</h1>
         <ul>
-            <li><a href="#">Listado de eventos</a></li>
-            <li><a href="#">Alta de evento</a></li>
-            <li><a href="#">Baja de evento</a></li>
-            <li><a href="#">Modificación de evento</a></li>
+            <li><a href="eventos/listado.php">Listado de eventos</a></li>
+            <li><a href="eventos/detalles.php">Alta de evento</a></li>
         </ul>
     </body>
 </html>
