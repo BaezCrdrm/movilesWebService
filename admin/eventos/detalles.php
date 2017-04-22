@@ -11,13 +11,7 @@ if($_SESSION["activeSession"] = true)
     </head>
 
     <body>
-        <h3>Abrir en:</h3>
-        <ul>
-            <li>Microsoft edge</li>
-            <li>Google chrome</li>
-            <li>Opera (Escritorio)</li>
-            <li>Safari...?</li>
-        </ul>
+        
 
         <form>
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
