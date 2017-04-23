@@ -4,6 +4,9 @@ $evName = $_GET["evName"];
 $evSch = $_GET["evDateTime"];
 //Agregar canales del evento
 
+//Arreglo que contiene los elementos seleccionados
+$chChecked = $_GET[""];
+
 $chId;
 
 if($action == "add")
