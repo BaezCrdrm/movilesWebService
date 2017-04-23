@@ -8,27 +8,39 @@ if($_SESSION["activeSession"] = true)
     <head>
         <meta charset="utf-8" />
         <title>Evento</title>
+
+        <style type="text/css">
+            .divChannelSelectionList {
+                width:200px;
+                height:300px;
+                overflow: scroll;
+            }
+        </style>
     </head>
 
-    <body>
-        <h3>Abrir en:</h3>
-        <ul>
-            <li>Microsoft edge</li>
-            <li>Google chrome</li>
-            <li>Opera (Escritorio)</li>
-            <li>Safari...?</li>
-        </ul>
+    <body>       
+        <form action="../../scripts/admin/addChannel" method="GET">
+            <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
+            <input type="hidden" name="evId"/>
+            <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
+            <input type="hidden" name="formAction" value="add"/>
 
-        <form>
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
             <label>Nombre de evento</label>
             <input type="text" placeholder="Nombre de evento" name="evName"><br>
             <label>Fecha y hora de evento</label>
-            <input type="datetime-local" ame="evDateTime"><br>
+            <input type="datetime-local" name="evDateTime"><br>
             <label>Canal del evento</label>
             <!--Llenar con los canales cargados desde la base de datos-->
-            <select id="slnChannel" namespace="evChannel" placeholder="Canal">
-            </select><br>
+            <!--Mejor forma de seleccionar los canales????!!-->
+            <!--<select id="slnChannel" name="evChannel" placeholder="Canal">
+            </select><br>-->
+            <div class="divChannelSelectionList">
+                <ul>
+                    <!--Generar lista con checkbox con código-->
+                    <!--https://www.formget.com/php-checkbox/-->
+                </ul>
+            </div>
             <label>Detalles del evento</label>
             <input type="textarea" placeholder="Detalles del evento" name="evDescription"><br>
             <input type="submit" value="Aceptar" />
