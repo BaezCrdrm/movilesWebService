@@ -8,6 +8,14 @@ if($_SESSION["activeSession"] = true)
     <head>
         <meta charset="utf-8" />
         <title>Evento</title>
+
+        <style type="text/css">
+            .divChannelSelectionList {
+                width:200px;
+                height:300px;
+                overflow: scroll;
+            }
+        </style>
     </head>
 
     <body>       
@@ -27,6 +35,12 @@ if($_SESSION["activeSession"] = true)
             <!--Mejor forma de seleccionar los canales????!!-->
             <!--<select id="slnChannel" name="evChannel" placeholder="Canal">
             </select><br>-->
+            <div class="divChannelSelectionList">
+                <ul>
+                    <!--Generar lista con checkbox con código-->
+                    <!--https://www.formget.com/php-checkbox/-->
+                </ul>
+            </div>
             <label>Detalles del evento</label>
             <input type="textarea" placeholder="Detalles del evento" name="evDescription"><br>
             <input type="submit" value="Aceptar" />
