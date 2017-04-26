@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2017 a las 06:03:10
+-- Tiempo de generación: 26-04-2017 a las 23:56:56
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -78,6 +78,29 @@ INSERT INTO `pass` (`id`, `pwd`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `types`
+--
+
+CREATE TABLE `types` (
+  `tp_id` int(11) NOT NULL,
+  `tp_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tp_img` varchar(400) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `type_event`
+--
+
+CREATE TABLE `type_event` (
+  `tp_id` int(11) NOT NULL,
+  `ev_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -124,6 +147,19 @@ ALTER TABLE `pass`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`tp_id`);
+
+--
+-- Indices de la tabla `type_event`
+--
+ALTER TABLE `type_event`
+  ADD KEY `fk_ev_evtp` (`ev_id`),
+  ADD KEY `fk_tp_evtp` (`tp_id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -145,6 +181,13 @@ ALTER TABLE `event_channel`
 --
 ALTER TABLE `pass`
   ADD CONSTRAINT `fk_pass_usr` FOREIGN KEY (`id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `type_event`
+--
+ALTER TABLE `type_event`
+  ADD CONSTRAINT `fk_ev_evtp` FOREIGN KEY (`ev_id`) REFERENCES `event` (`ev_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_tp_evtp` FOREIGN KEY (`tp_id`) REFERENCES `types` (`tp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
