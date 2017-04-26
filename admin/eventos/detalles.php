@@ -40,7 +40,10 @@ if($_SESSION["activeSession"] = true)
                     <!--Generar lista con checkbox con código-->
                     <!--https://www.formget.com/php-checkbox/-->
                 </ul>
-            </div>
+            </div><br>
+            <label>Tipo de evento</label>
+            <select>
+            </select><br>
             <label>Detalles del evento</label>
             <input type="textarea" placeholder="Detalles del evento" name="evDescription"><br>
             <input type="submit" value="Aceptar" />
