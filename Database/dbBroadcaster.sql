@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2017 a las 23:56:56
+-- Tiempo de generación: 30-04-2017 a las 04:56:09
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -32,6 +32,18 @@ CREATE TABLE `channels` (
   `ch_abv` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `ch_img` varchar(400) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `channels`
+--
+
+INSERT INTO `channels` (`ch_id`, `ch_name`, `ch_abv`, `ch_img`) VALUES
+(1, 'ESPN', 'E1', NULL),
+(2, 'ESPN 2', 'E2', NULL),
+(3, 'FOX SPORTS', 'FXS1', NULL),
+(4, 'FOX SPORTS 2', 'FXS2', NULL),
+(5, 'AZTECA 7', 'A7', NULL),
+(6, 'CANAL 5', 'C5', NULL);
 
 -- --------------------------------------------------------
 
@@ -86,6 +98,19 @@ CREATE TABLE `types` (
   `tp_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tp_img` varchar(400) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `types`
+--
+
+INSERT INTO `types` (`tp_id`, `tp_name`, `tp_img`) VALUES
+(1, 'Futbol Americano', NULL),
+(2, 'Futbol', NULL),
+(3, 'Basquetbol', NULL),
+(4, 'Base ball', NULL),
+(5, 'Musicales', NULL),
+(6, 'Premios', NULL),
+(7, 'Otros', NULL);
 
 -- --------------------------------------------------------
 
@@ -166,6 +191,20 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `channels`
+--
+ALTER TABLE `channels`
+  MODIFY `ch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `types`
+--
+ALTER TABLE `types`
+  MODIFY `tp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -186,8 +225,8 @@ ALTER TABLE `pass`
 -- Filtros para la tabla `type_event`
 --
 ALTER TABLE `type_event`
-  ADD CONSTRAINT `fk_ev_evtp` FOREIGN KEY (`ev_id`) REFERENCES `event` (`ev_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_tp_evtp` FOREIGN KEY (`tp_id`) REFERENCES `types` (`tp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_ev_evtp` FOREIGN KEY (`ev_id`) REFERENCES `event` (`ev_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tp_evtp` FOREIGN KEY (`tp_id`) REFERENCES `types` (`tp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
