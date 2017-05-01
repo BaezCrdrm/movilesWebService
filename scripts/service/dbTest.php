@@ -1,4 +1,8 @@
 <?php
+    //// Prueba la conexión a la base de datos
+
+    // Modificar de ser necesario
+
     require "connection.php";
     $query = "SELECT * FROM channels";
     $c = mysqli_query($connection, $query);

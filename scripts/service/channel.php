@@ -1,4 +1,6 @@
 <?php
+//// En este Script van todas las funciones no relacionadas directamente
+//// a los formularios del administrador acerca de Canales
 function returnChannelName()
 {
     require_once "queries.php";

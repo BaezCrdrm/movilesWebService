@@ -1,4 +1,6 @@
 <?php
+//// En este Script van todas las funciones no relacionadas directamente
+//// a los formularios del administrador acerca de Eventos
 function returnEventType()
 {
     require_once "queries.php";
