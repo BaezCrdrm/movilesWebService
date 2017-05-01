@@ -18,16 +18,16 @@ if($_SESSION["activeSession"] = true)
             <li>Opera (Escritorio)</li>
             <li>Firefox</li>
         </ul>
-        <form action="../../scripts/admin/addChannel" method="GET">
+        <form action="../../scripts/admin/addChannel.php" method="GET">
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
             <input type="hidden" name="chId"/>
             <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
             <input type="hidden" name="formAction" value="add"/>
 
             <label>Nombre de canal</label>
-            <input type="text" placeholder="Nombre de canal" name="chName"><br>
+            <input type="text" placeholder="Nombre de canal" name="chName" required><br>
             <label>Abreviatura del nombre de canal</label>
-            <input type="text" placeholder="Abreviatura" name="chAbv"><br>
+            <input type="text" placeholder="Abreviatura" name="chAbv" required><br>
             <label>URL de ícono</label>
             <input type="url" placeholder="URL" name="chIconUrl"><br>
             <input type="submit" value="Aceptar" />
