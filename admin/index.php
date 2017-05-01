@@ -20,7 +20,7 @@ if($_SESSION["activeSession"] == true)
         <h3>Canales</h3>
         <ul>
             <li><a href="canales/listado.php">Listado de canales</a></li>
-            <li><a href="canales/detalles.php">Alta de canale</a></li>
+            <li><a href="canales/detalles.php">Alta de canales</a></li>
         </ul>
     </body>
 </html>
