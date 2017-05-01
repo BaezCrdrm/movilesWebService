@@ -34,7 +34,7 @@ if($_SESSION["activeSession"] = true)
     </head>
 
     <body>       
-        <form action="../../scripts/admin/addChannel.php" method="GET">
+        <form action="../../scripts/admin/addEvent.php" method="GET">
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
             <input type="hidden" name="evId"/>
             <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
@@ -49,7 +49,7 @@ if($_SESSION["activeSession"] = true)
                 <div id="divAllChannels" class="divChannelSelectionList">
                     <h2>Todos los canales</h2>
                     <ul>
-                        <!--https://www.formget.com/php-checkbox/ -->
+                        <!-- https://www.formget.com/php-checkbox/ -->
                         <?php
                             echo returnChannelName()
                         ?>

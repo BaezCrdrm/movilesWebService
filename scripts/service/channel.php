@@ -12,7 +12,7 @@ function returnChannelName()
     {
         //Cambiar de ser necesario
         $opt .= "
-        <li><input type='checkbox' alt='".$reg[1]."' onchange='checkedChange(this)' id='ch_".$reg[0]."' name='channels' value='".$reg[0]."'>".$reg[1]."</input></li>";
+        <li><input type='checkbox' alt='".$reg[1]."' onchange='checkedChange(this)' id='ch_".$reg[0]."' name='channels[]' value='".$reg[0]."'>".$reg[1]."</input></li>";
     }
     return $opt;
 }
