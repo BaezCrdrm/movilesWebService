@@ -33,7 +33,7 @@ if($_SESSION["activeSession"] = true)
         </style>
     </head>
 
-    <body>       
+    <body onload="onNewLoadEvent()">       
         <form action="../../scripts/admin/addEvent.php" method="GET">
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
             <input type="hidden" name="evId"/>
@@ -43,7 +43,8 @@ if($_SESSION["activeSession"] = true)
             <label>Nombre de evento</label>
             <input type="text" placeholder="Nombre de evento" name="evName" required><br>
             <label>Fecha y hora de evento</label>
-            <input type="datetime-local" name="evDateTime" required><br>
+            <input type="datetime-local" id="dtlDateTime" name="evDateTime" required><br>
+            
             <label>Canal del evento</label>
             <div id="divChannels">
                 <div id="divAllChannels" class="divChannelSelectionList">
