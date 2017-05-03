@@ -65,7 +65,7 @@ if($_SESSION["activeSession"] = true)
             </div>
 
             <label>Tipo de evento</label>
-            <select>
+            <select name="evType">
                 <?php                    
                     echo returnEventType();
                 ?>

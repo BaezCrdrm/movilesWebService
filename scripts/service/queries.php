@@ -27,16 +27,22 @@ function generateId($sch)
     return $id; 
 }
 
-function createEvent($query, $id, $chs)
+function createEvent($query, $id, $chs, $type)
 {
     $retValue = true;
-    if(executeQuery($query))
-    {
-        for ($i=0; $i < count($chs); $i++) { 
-            $query = "INSERT INTO event_channel (ev_id, ch_id) VALUES ('$id', ".$chs[0].")";
+    try {
+        if(executeQuery($query))
+        {
+            for ($i=0; $i < count($chs); $i++) { 
+                $query = "INSERT INTO event_channel (ev_id, ch_id) VALUES ('$id', ".$chs[0].")";
+                executeQuery($query);
+            }
+            $query = "INSERT INTO type_event (tp_id, ev_id) VALUES ($type, '$id')";
             executeQuery($query);
+            return true;
         }
-        return true;
+    } catch (Exception $e) {
+        return false;
     }
 }
 

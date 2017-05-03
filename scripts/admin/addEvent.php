@@ -4,6 +4,7 @@ $evName = $_GET["evName"];
 $evSch = $_GET["evDateTime"];
 $evDes = $_GET["evDescription"];
 $chChecked = $_GET["channels"];
+$evType = $_GET["evType"];
 $chId;
 
 require "../service/queries.php";
@@ -16,7 +17,7 @@ if($action == "add")
 
     $query = "INSERT INTO event (ev_id, ev_name, ev_sch, ev_des) VALUES ('$chId', '$evName', '$date ".$array[1]."', '$evDes')";
 
-    if(createEvent($query, $chId, $chChecked))
+    if(createEvent($query, $chId, $chChecked, $evType))
     {
         echo "The new event has been successfully added";
     } else {
