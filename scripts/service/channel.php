@@ -17,11 +17,11 @@ function returnChannelName()
     return $opt;
 }
 
-function channelsList()
+function channelAdmList()
 {
     require_once "queries.php";
-    $consult="SELECT * FROM channels";
-    $resultado= executeQuery($consult);
+    $consult = "SELECT * FROM channels";
+    $resultado = executeQuery($consult);
     $str = "<table class='tabla'>  
           <tr>  
           <th>Id Channel</th>

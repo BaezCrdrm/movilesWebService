@@ -48,7 +48,7 @@ if($_SESSION["activeSession"] = true)
             }else{
                 echo "value='add'";
             }
-            ?>/>
+            ?> />
             <label>Nombre de canal</label>
             <input type="text" placeholder="Nombre de canal" name="chName" required
             <?php

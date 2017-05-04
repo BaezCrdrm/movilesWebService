@@ -58,4 +58,16 @@ function checkEventId($id)
         return true;
     }
 }
+
+function request($query)
+{
+    $res = executeQuery($query);
+    $data = array();
+
+    foreach ($res as $row) {
+        $data[] = $row;
+    }    
+
+    return json_encode($data);
+}
 ?>

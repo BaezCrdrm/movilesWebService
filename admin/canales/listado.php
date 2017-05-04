@@ -18,7 +18,7 @@ if($_SESSION["activeSession"] = true)
         </p>
     <?php
     require "../../scripts/service/channel.php";
-    echo channelsList();
+    echo channelAdmList();
     ?>
 
     </body>
