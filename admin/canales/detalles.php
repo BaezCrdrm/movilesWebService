@@ -2,6 +2,25 @@
 session_start();
 if($_SESSION["activeSession"] = true)
 {
+    $idconsult = $_GET["id"];
+    require "../../scripts/service/queries.php";
+    $query = "SELECT * FROM channels WHERE ($idconsult=ch_id)";
+    $consult=executeQuery($query);
+
+    $name = "";
+    $abreviatura = "";
+    $url = "";
+    while ($row = mysqli_fetch_row($consult)){   
+    echo "<tr>  
+          <td>$row[0]</td>  
+          <td>$row[1]</td>  
+          <td>$row[2]</td>
+          <td><img src='$row[3]'/></td>
+          </tr>";
+          $name = $row[1];
+          $abreviatura = $row[2];
+          $url = $row[3];
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,16 +39,43 @@ if($_SESSION["activeSession"] = true)
         </ul>
         <form action="../../scripts/admin/addChannel.php" method="GET">
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
-            <input type="hidden" name="chId"/>
+            <input type="hidden" name="chId"
+            <?php
+            $id = $_GET["id"];
+            if($id != null){
+                echo "value='$id'";
+            }
+            ?> />
             <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
-            <input type="hidden" name="formAction" value="add"/>
-
+            <input type="hidden" name="formAction"
+            <?php
+            if($id != null){
+                echo "value='update'";
+            }else{
+                echo "value='add'";
+            }
+            ?>/>
             <label>Nombre de canal</label>
-            <input type="text" placeholder="Nombre de canal" name="chName" required><br>
+            <input type="text" placeholder="Nombre de canal" name="chName" required
+            <?php
+            if($id != null){
+                echo "value='$name'";
+            }
+            ?>> <br>
             <label>Abreviatura del nombre de canal</label>
-            <input type="text" placeholder="Abreviatura" name="chAbv" required><br>
+            <input type="text" placeholder="Abreviatura" maxlength="4" name="chAbv" required
+            <?php
+            if($id != null){
+                echo "value='$abreviatura'";
+            }
+            ?>><br>
             <label>URL de ícono</label>
-            <input type="url" placeholder="URL" name="chIconUrl"><br>
+            <input type="url" placeholder="URL" name="chIconUrl"
+            <?php
+            if($id != null){
+                echo "value='$url'";
+            }
+            ?>><br>
             <input type="submit" value="Aceptar" />
         </form>
     </body>
