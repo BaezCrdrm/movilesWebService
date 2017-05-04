@@ -10,13 +10,7 @@ if($_SESSION["activeSession"] = true)
     $name = "";
     $abreviatura = "";
     $url = "";
-    while ($row = mysqli_fetch_row($consult)){   
-    echo "<tr>  
-          <td>$row[0]</td>  
-          <td>$row[1]</td>  
-          <td>$row[2]</td>
-          <td><img src='$row[3]'/></td>
-          </tr>";
+    while ($row = mysqli_fetch_row($consult)){
           $name = $row[1];
           $abreviatura = $row[2];
           $url = $row[3];

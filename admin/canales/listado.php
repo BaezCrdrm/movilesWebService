@@ -17,25 +17,8 @@ if($_SESSION["activeSession"] = true)
             los eventos e ir haciendo filtros</i>
         </p>
     <?php
-    require "../../scripts/service/queries.php";
-    $consult="SELECT * FROM channels";
-    $resultado= executeQuery($consult);
-    echo "<table class='tabla'>  
-          <tr>  
-          <th>Id Channel</th>
-          <th>Channel Name</th>  
-          <th>Channel Abv</th>  
-          <th></th>
-          </tr>";
-    while ($row = mysqli_fetch_row($resultado)){   
-    echo "<tr>  
-          <td>$row[0]</td>  
-          <td>$row[1]</td>  
-          <td>$row[2]</td>
-          <td><img src='$row[3]'/></td>
-          <td><a href='detalles.php?id=$row[0]'>Update</a></td>
-          </tr>";
-    }
+    require "../../scripts/service/channel.php";
+    echo channelsList();
     ?>
 
     </body>
