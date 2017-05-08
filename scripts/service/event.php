@@ -1,7 +1,7 @@
 <?php
 //// En este Script van todas las funciones no relacionadas directamente
 //// a los formularios del administrador acerca de Eventos
-function returnEventType()
+function returnEventType($type)
 {
     require_once "queries.php";
     $query = "SELECT tp_id, tp_name FROM types";
@@ -12,8 +12,40 @@ function returnEventType()
     {
         //Cambiar de ser necesario
         $opt .= "
-        <option value='".$reg[0]."'>".$reg[1]."</option>";
+        <option value='".$reg[0]."'";
+        if($type == $reg[0])
+        {
+            $opt .= " selected";
+        }
+
+        $opt .= ">".$reg[1]."</option>";
     }
     return $opt;
+}
+
+function eventAdmList()
+{
+    require_once "queries.php";
+    $query = "SELECT ev_id, ev_name, ev_sch FROM event";
+    $resultado = executeQuery($query);
+    $str = "<table class='tabla'>  
+          <tr>  
+          <th>Event Id</th>
+          <th>Event Name</th>  
+          <th>Event Schedule</th>  
+          <th></th>
+          <th></th>
+          </tr>";
+
+    while($row = mysqli_fetch_row($resultado))
+    {
+        $str .= "<tr>
+          <td>$row[0]</td>
+          <td>$row[1]</td>
+          <td>$row[2]</td>
+          <td><a href='detalles.php?id=$row[0]'>Update</a></td>
+          <td></td>";
+    }
+    return $str;
 }
 ?>

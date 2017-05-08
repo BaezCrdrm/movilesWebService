@@ -34,7 +34,7 @@ function createEvent($query, $id, $chs, $type)
         if(executeQuery($query))
         {
             for ($i=0; $i < count($chs); $i++) { 
-                $query = "INSERT INTO event_channel (ev_id, ch_id) VALUES ('$id', ".$chs[0].")";
+                $query = "INSERT INTO event_channel (ev_id, ch_id) VALUES ('$id', ".$chs[$i].")";
                 executeQuery($query);
             }
             $query = "INSERT INTO type_event (tp_id, ev_id) VALUES ($type, '$id')";
