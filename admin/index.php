@@ -14,7 +14,7 @@ if($_SESSION["activeSession"] == true)
         <h3>Eventos</h3>
         <ul>
             <li><a href="eventos/listado.php">Listado de eventos</a></li>
-            <li><a href="eventos/detalles.php">Alta de evento</a></li>
+            <li><a href='eventos/detalles.php?id="null"'>Alta de evento</a></li>
         </ul>
 
         <h3>Canales</h3>

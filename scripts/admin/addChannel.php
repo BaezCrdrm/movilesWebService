@@ -18,6 +18,20 @@ if($action == "add")
         echo "There has been a problem. The new channel hasn't been added";
     }
 }
+elseif($action == "delete"){
+
+$chid = trim($_GET["chId"]);
+$query = "DELETE FROM channels WHERE ch_id=$chid";
+
+    if(executeQuery($query))
+    {
+        echo "The channel has been successfully delete";
+    } else {
+        echo "There has been a problem. The new channel hasn't been delete";
+    }
+
+
+}
 else {
     $chId = trim($_GET["chId"]);
     // Modificar canal

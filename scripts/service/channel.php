@@ -37,6 +37,7 @@ function channelAdmList()
           <td>$row[2]</td>
           <td><img src='$row[3]'/></td>
           <td><a href='detalles.php?id=$row[0]'>Update</a></td>
+          <td><a href='DeleteChannel.php?id=$row[0]'>Delete</a></td>
           </tr>";
     }
 

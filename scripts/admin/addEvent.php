@@ -27,5 +27,6 @@ if($action == "add")
 else {
     $chId = $_GET["evId"];
     // Modificar evento
+    
 }
 ?>

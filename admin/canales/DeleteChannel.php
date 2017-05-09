@@ -2,14 +2,11 @@
 session_start();
 if($_SESSION["activeSession"] = true)
 {
-    $idconsult = trim($_GET["id"]);
+    $idconsult = $_GET["id"];
     require "../../scripts/service/queries.php";
     $query = "SELECT * FROM channels WHERE ($idconsult=ch_id)";
     $consult=executeQuery($query);
 
-    $name = "";
-    $abreviatura = "";
-    $url = "";
     while ($row = mysqli_fetch_row($consult)){
           $name = $row[1];
           $abreviatura = $row[2];
@@ -44,7 +41,7 @@ if($_SESSION["activeSession"] = true)
             <input type="hidden" name="formAction"
             <?php
             if($id != null){
-                echo "value='update'";
+                echo "value='delete'";
             }else{
                 echo "value='add'";
             }
