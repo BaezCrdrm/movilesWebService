@@ -5,7 +5,7 @@ if($_SESSION["activeSession"] = true)
     require "../../scripts/service/channel.php";
     require "../../scripts/service/event.php";
 
-    $idConsult = $_GET["id"];
+    $idConsult = $_GET["evid"];
     require_once "../../scripts/service/queries.php";
     $query = "SELECT event.ev_id, event.ev_name, event.ev_sch, event.ev_des, type_event.tp_id "; 
     $query .= "FROM event INNER JOIN type_event ON event.ev_id = type_event.ev_id WHERE event.ev_id = '$idConsult'";
@@ -66,14 +66,14 @@ if($_SESSION["activeSession"] = true)
             <!--Esta página servirá como plantilla tanto para agregar como para modificar eventos-->
             <input type="hidden" name="evId" 
             <?php
-            if($idConsult != null)
+            if($idConsult != "null")
             {
                 echo "value = '$idConsult'";
             }
             ?> />
             <input type="hidden" name="formAction"
             <?php
-            if($idConsult != null){
+            if($idConsult != "null"){
                 echo "value='update'";
             }else{
                 echo "value='add'";
@@ -83,14 +83,14 @@ if($_SESSION["activeSession"] = true)
             <label>Nombre de evento</label>
             <input type="text" placeholder="Nombre de evento" name="evName" required 
             <?php
-            if($idConsult != null){
+            if($idConsult != "null"){
                 echo "value='$name'";
             }
             ?>><br>
             <label>Fecha y hora de evento</label>
             <input type="datetime-local" id="dtlDateTime" name="evDateTime" required
             <?php
-            if($idConsult != null){
+            if($idConsult != "null"){
                 echo "value='$sch'";
             }
             ?>
@@ -124,7 +124,7 @@ if($_SESSION["activeSession"] = true)
             <label>Detalles del evento</label>
             <input type="textarea" placeholder="Detalles del evento" name="evDescription" 
             <?php
-            if($idConsult != null){
+            if($idConsult != "null"){
                 echo "value='$details'";
             }
             ?>

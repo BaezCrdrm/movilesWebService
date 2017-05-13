@@ -25,8 +25,26 @@ if($action == "add")
     }
 }
 else {
-    $chId = $_GET["evId"];
+    $chId = trim($_GET["evId"]);
     // Modificar evento
+    $query = "DELETE FROM event_channel WHERE ev_id='$chId'";
+    if(executeQuery($query))
+    {
+        echo "The event has been successfully delete";
+    } else {
+        echo "There has been a problem. The event hasn't been delete";
+    }
+    $array = explode("T", $evSch);
+    $date = $array[0];
+
+    $query = "UPDATE event SET ev_name = '$evName', ev_sch = '$date ".$array[1]."', ev_des = '$evDes' WHERE ev_id = '$chId'";
+
+    if(updateEvent($query, $chId, $chChecked, $evType))
+    {
+        echo "  The new event has been successfully Update";
+    } else {
+        echo "  There has been a problem Updating the new event";
+    }
     
 }
 ?>

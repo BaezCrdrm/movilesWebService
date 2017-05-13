@@ -45,7 +45,24 @@ function createEvent($query, $id, $chs, $type)
         return false;
     }
 }
-
+function updateEvent($query, $id, $chs, $type)
+{
+    $retValue = true;
+    try {
+        if(executeQuery($query))
+        {
+            for ($i=0; $i < count($chs); $i++) { 
+                $query = "INSERT INTO event_channel (ev_id, ch_id) VALUES ('$id', ".$chs[$i].")";
+                executeQuery($query);
+            }
+            $query = "UPDATE type_event SET tp_id = '$type' WHERE ev_id = '$id'";
+            executeQuery($query);
+            return true;
+        }
+    } catch (Exception $e) {
+        return false;
+    }
+}
 function checkEventId($id)
 {
     $query = "SELECT * FROM event WHERE ev_id = '$id'";

@@ -70,7 +70,7 @@ if($_SESSION["activeSession"] = true)
                 echo "value='$url'";
             }
             ?>><br>
-            <input type="submit" value="Aceptar" />
+            <input type="submit" value="Aceptar"/>
         </form>
     </body>
 </html>

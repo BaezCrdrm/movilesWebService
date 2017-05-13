@@ -43,7 +43,7 @@ function eventAdmList()
           <td>$row[0]</td>
           <td>$row[1]</td>
           <td>$row[2]</td>
-          <td><a href='detalles.php?id=$row[0]'>Update</a></td>
+          <td><a href='detalles.php?evid=$row[0]'>Update</a></td>
           <td></td>";
     }
     return $str;
