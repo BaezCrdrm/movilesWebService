@@ -85,6 +85,9 @@ function request($query)
         $data[] = $row;
     }    
 
-    return json_encode($data);
+    $json = json_encode($data);
+    $json = str_replace("\\", "", $json);
+
+    return $json;
 }
 ?>
