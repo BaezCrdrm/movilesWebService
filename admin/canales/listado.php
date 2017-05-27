@@ -8,6 +8,12 @@ if($_SESSION["activeSession"] = true)
     <head>
         <meta charset="utf-8" />
         <title>Listado de canales</title>
+
+        <style type="text/css">
+            img {
+                height: 50px;
+            }
+        </style>
     </head>
 
     <body>

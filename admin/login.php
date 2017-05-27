@@ -20,4 +20,7 @@ if(count($u) > 0)
     $_SESSION["activeSession"] = true;
     header("Location:index.php");
 }
+else {
+    echo "Wrong password";
+}
 ?>
