@@ -36,14 +36,14 @@ if($_SESSION["activeSession"] = true)
             <input type="hidden" name="chId"
             <?php
             $id = $_GET["id"];
-            if($id != null){
+            if($id != "null"){
                 echo "value='$id'";
             }
             ?> />
             <!--Cambiar formAction dependiendo lo que se vaya a realizar-->
             <input type="hidden" name="formAction"
             <?php
-            if($id != null){
+            if($id != "null"){
                 echo "value='update'";
             }else{
                 echo "value='add'";
@@ -52,21 +52,21 @@ if($_SESSION["activeSession"] = true)
             <label>Nombre de canal</label>
             <input type="text" placeholder="Nombre de canal" name="chName" required
             <?php
-            if($id != null){
+            if($id != "null"){
                 echo "value='$name'";
             }
             ?>> <br>
             <label>Abreviatura del nombre de canal</label>
             <input type="text" placeholder="Abreviatura" maxlength="4" name="chAbv" required
             <?php
-            if($id != null){
+            if($id != "null"){
                 echo "value='$abreviatura'";
             }
             ?>><br>
             <label>URL de ícono</label>
             <input type="url" placeholder="URL" name="chIconUrl"
             <?php
-            if($id != null){
+            if($id != "null"){
                 echo "value='$url'";
             }
             ?>><br>
