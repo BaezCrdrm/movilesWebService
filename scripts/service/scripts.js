@@ -26,7 +26,6 @@ function onDateTimePickerChange()
 function onNewLoadEvent()
 {
     var dl = document.getElementById("dtlDateTime");
-    var d2 = document.getElementById("dtlDateTimeEnd");
 
     var d = new Date();
     if(dl.value == "")
@@ -36,9 +35,9 @@ function onNewLoadEvent()
         dl.value = mind;
         dl.min = mind;
         dl.max = maxd;
-        
-        onDateTimePickerChange();
     }
+
+    onDateTimePickerChange();
 }
 
 function addZero(value, max)
