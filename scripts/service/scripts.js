@@ -14,9 +14,20 @@ function checkedChange(object)
     }
 }
 
+function onDateTimePickerChange()
+{
+    var dl = document.getElementById("dtlDateTime");
+    var d2 = document.getElementById("dtlDateTimeEnd");
+    d2.max = dl.max;
+    d2.min = dl.value;
+    d2.value = d2.min;
+}
+
 function onNewLoadEvent()
 {
     var dl = document.getElementById("dtlDateTime");
+    var d2 = document.getElementById("dtlDateTimeEnd");
+
     var d = new Date();
     if(dl.value == "")
     {
@@ -25,6 +36,8 @@ function onNewLoadEvent()
         dl.value = mind;
         dl.min = mind;
         dl.max = maxd;
+        
+        onDateTimePickerChange();
     }
 }
 

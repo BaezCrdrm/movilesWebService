@@ -7,31 +7,37 @@ if($_SESSION["activeSession"] = true)
 
     $idConsult = $_GET["evid"];
     require_once "../../scripts/service/queries.php";
-    $query = "SELECT event.ev_id, event.ev_name, event.ev_sch, event.ev_des, type_event.tp_id "; 
-    $query .= "FROM event INNER JOIN type_event ON event.ev_id = type_event.ev_id WHERE event.ev_id = '$idConsult'";
 
-    $consult = executeQuery($query);
-
-    $name = "";
-    $sch = null;
-    $type = 0;
-    $details = "";
-
-    while ($row = mysqli_fetch_row($consult))
+    if($idConsult != "null")
     {
-        $name = $row[1];
-        $sch = $row[2];
-        $type = $row[4];
-        $details = $row[3];
+        $query = "SELECT event.ev_id, event.ev_name, event.ev_sch, event.ev_sch_end, event.ev_des, type_event.tp_id "; 
+        $query .= "FROM event INNER JOIN type_event ON event.ev_id = type_event.ev_id WHERE event.ev_id = '$idConsult'";
+
+        $consult = executeQuery($query);
+
+        $name = "";
+        $sch = null;
+        $type = 0;
+        $details = "";
+
+        while ($row = mysqli_fetch_row($consult))
+        {
+            $name = $row[1];
+            $sch = $row[2];
+            $sch_end = $row[3];
+            $details = $row[4];
+            $type = $row[5];
+        }
+
+        $query = "SELECT ch_id FROM event_channel WHERE ev_id = '$idConsult'";
+        $consult = null;
+        $consult = executeQuery($query);
+
+        $channels = request($query);
+
+        $sch = str_replace(" ", "T", $sch);
+        $sch_end = str_replace(" ", "T", $sch_end);
     }
-
-    $query = "SELECT ch_id FROM event_channel WHERE ev_id = '$idConsult'";
-    $consult = null;
-    $consult = executeQuery($query);
-
-    $channels = request($query);
-
-    $sch = str_replace(" ", "T", $sch);
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,11 +93,21 @@ if($_SESSION["activeSession"] = true)
                 echo "value='$name'";
             }
             ?>><br>
-            <label>Fecha y hora de evento</label>
-            <input type="datetime-local" id="dtlDateTime" name="evDateTime" required
+            <label>Fecha y hora de inicio del evento</label>
+            <input type="datetime-local" id="dtlDateTime" name="evDateTime" required 
+            onchange="onDateTimePickerChange()" 
             <?php
             if($idConsult != "null"){
                 echo "value='$sch'";
+            }
+            ?>
+            ><br>
+
+            <label>Fecha y hora de término del evento</label>
+            <input type="datetime-local" id="dtlDateTimeEnd" name="evDateTimeEnd" required  
+            <?php
+            if($idConsult != "null"){
+                echo "value='$sch_end'";
             }
             ?>
             ><br>
