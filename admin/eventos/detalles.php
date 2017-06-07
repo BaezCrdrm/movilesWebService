@@ -64,6 +64,16 @@ if($_SESSION["activeSession"] = true)
                 /*#divSelectedChannels{
                     float:right;
                 }*/
+
+            #txtDescription {
+                height:100px;
+                width:300px;
+            }
+
+            #btnAccept {
+                margin-top:10px;
+                margin-bottom:50px;
+            }
         </style>
     </head>
 
@@ -138,14 +148,9 @@ if($_SESSION["activeSession"] = true)
                 ?>
             </select><br>
             <label>Detalles del evento</label>
-            <input type="textarea" placeholder="Detalles del evento" name="evDescription" 
-            <?php
-            if($idConsult != "null"){
-                echo "value='$details'";
-            }
-            ?>
-            ><br>
-            <input type="submit" value="Aceptar" />
+            <textarea id="txtDescription" placeholder="Detalles del evento" name="evDescription" 
+            maxlength="300" wrap><?php if($idConsult != "null"){echo trim($details);}?></textarea><br>
+            <input id="btnAccept" type="submit" value="Aceptar" />
         </form>        
     </body>    
 </html>
