@@ -16,6 +16,11 @@ if($_SESSION["activeSession"] = true)
         <p><i><b>Nota:</b> Aquí habrá que listar TODOS
             los eventos e ir haciendo filtros</i>
         </p>
+
+        <?php
+        require "../../scripts/service/event.php";
+        echo eventAdmList();
+        ?>
     </body>
 </html>
 <?php

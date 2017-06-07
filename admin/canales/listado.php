@@ -8,6 +8,12 @@ if($_SESSION["activeSession"] = true)
     <head>
         <meta charset="utf-8" />
         <title>Listado de canales</title>
+
+        <style type="text/css">
+            img {
+                height: 50px;
+            }
+        </style>
     </head>
 
     <body>
@@ -16,6 +22,11 @@ if($_SESSION["activeSession"] = true)
         <p><i><b>Nota:</b> Aquí habrá que listar TODOS
             los eventos e ir haciendo filtros</i>
         </p>
+    <?php
+    require "../../scripts/service/channel.php";
+    echo channelAdmList();
+    ?>
+
     </body>
 </html>
 <?php
