@@ -1,5 +1,5 @@
 <?php
-require "queries.php";
+require "../queries.php";
 $query = "SELECT ev_id, ev_sch_end FROM event";
 
 $res = executeQuery($query);
