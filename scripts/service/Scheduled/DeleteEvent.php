@@ -3,6 +3,7 @@ require "../queries.php";
 $query = "SELECT ev_id, ev_sch_end FROM event";
 
 $res = executeQuery($query);
+date_default_timezone_set('America/Mexico_City');
 $now = date("Y-m-d H:i:s");
 
 foreach ($res as $row) {
