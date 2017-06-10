@@ -26,13 +26,14 @@ function returnEventType($type)
 function eventAdmList()
 {
     require_once "queries.php";
-    $query = "SELECT ev_id, ev_name, ev_sch FROM event";
+    $query = "SELECT ev_id, ev_name, ev_sch, ev_sch_end FROM event";
     $resultado = executeQuery($query);
     $str = "<table class='tabla'>  
           <tr>  
           <th>Event Id</th>
           <th>Event Name</th>  
-          <th>Event Schedule</th>  
+          <th>Beginning</th>  
+          <th>Ending</th> 
           <th></th>
           <th></th>
           </tr>";
@@ -43,6 +44,7 @@ function eventAdmList()
           <td>$row[0]</td>
           <td>$row[1]</td>
           <td>$row[2]</td>
+          <td>$row[3]</td>
           <td><a href='detalles.php?evid=$row[0]'>Update</a></td>
           <td></td>";
     }
