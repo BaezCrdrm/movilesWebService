@@ -119,8 +119,7 @@ if($_SESSION["activeSession"] = true)
             if($idConsult != "null"){
                 echo "value='$sch_end'";
             }
-            ?>
-            ><br>
+            ?>><br>
             
             <label>Canal del evento</label>
             <div id="divChannels">

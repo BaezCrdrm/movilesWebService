@@ -1,3 +1,5 @@
+var firstCharge = true;
+
 function checkedChange(object)
 {
     var ulSelectedCh = document.getElementById("ulSelectedChannels");  
@@ -37,7 +39,10 @@ function onNewLoadEvent()
         dl.max = maxd;
     }
 
-    onDateTimePickerChange();
+    if(firstCharge == false)
+        onDateTimePickerChange();
+    else
+        firstCharge = false;
 }
 
 function addZero(value, max)
