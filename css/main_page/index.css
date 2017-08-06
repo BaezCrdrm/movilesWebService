@@ -1,0 +1,27 @@
+header, #main, footer {
+    width: 100%;
+}
+
+header {
+    height: 150px;
+}
+
+    .aWebImgCover {
+        float: left;
+    }
+
+        .webImgCover {
+            width: auto;
+            height: 120px;
+        }
+
+    .menu {
+        float: right;
+    }
+
+#imgCover {
+    height: 400px;
+    background-attachment: fixed;
+    background-image: url("../../img/web/main-page/cover1.png");
+    background-size: cover;
+}
