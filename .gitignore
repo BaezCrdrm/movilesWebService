@@ -1,3 +1,4 @@
 # Ignora los cambios al archivo de conexión
 scripts/service/connection.php
 img/icons/Channel/*
+.vscode/
